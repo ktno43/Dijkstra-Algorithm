@@ -1,3 +1,4 @@
+
 /*-
  *****************************************
  * Group 2
@@ -11,7 +12,7 @@
  * Project 2: 
  * 
  * Group2_ReadFile.java
- * Version 4.0
+ * Version 5.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -48,8 +49,9 @@ public class Group2_ReadFile {
 			sc = new Scanner(new File(this.pathName));
 		} catch (Exception e) { // The file wasn't found
 			System.out.println("File not found. . . ");
+			e.printStackTrace();
+			System.exit(0);
 		}
-
 	}
 
 	public void readFile(ArrayList<Character> src, ArrayList<Character> dest, ArrayList<Integer> weight) {
@@ -58,9 +60,10 @@ public class Group2_ReadFile {
 			dest.add(sc.next().charAt(0)); // Add the second character to the list
 			weight.add(sc.nextInt()); // Add the weight to the list
 		}
+		closeFile();
 	}
 
-	public void closeFile() { // Close the file
+	private void closeFile() { // Close the file
 		sc.close();
 	}
 }

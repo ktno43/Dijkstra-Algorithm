@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Graph.java
- * Version 4.0
+ * Version 5.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -37,15 +37,17 @@ import java.util.TreeSet;
 public class Group2_Graph {
 	private ArrayList<Group2_Vertex> vertices;
 
-	public Group2_Graph(Group2_ReadFile file) { // Given a file create a graph
+	public Group2_Graph(String fileName) { // Given a file create a graph
+		Group2_ReadFile file = new Group2_ReadFile(fileName); // Try to open the file given the file name
+		
 		ArrayList<Character> srcList = new ArrayList<Character>(); // List for the source vertex
 		ArrayList<Character> destList = new ArrayList<Character>(); // List for the destination vertex
 		ArrayList<Integer> weightList = new ArrayList<Integer>(); // List for the weight between the source and the destination
 		Set<Character> uniqueSet = new TreeSet<Character>(); // Ordered set (will only contain unique elements)
+		
 		List<Character> uniqueList = new ArrayList<Character>(); // Ordered list which will contain the ordered set
 
 		file.readFile(srcList, destList, weightList); // Read the file which will update the lists
-		file.closeFile(); // Close the file since the file is no longer needed
 
 		for (int i = 0; i < srcList.size(); i += 1) { // For the size of the list (source/destination) would work
 			uniqueSet.add(srcList.get(i)); // Add the current element in the source list to the unique set (won't add duplicates)

@@ -1,3 +1,4 @@
+
 /*-
  *****************************************
  * Group 2
@@ -11,7 +12,7 @@
  * Project 2: 
  * 
  * Group2_Driver.java
- * Version 4.0
+ * Version 5.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -29,17 +30,37 @@
  * nor does it display nodes that are
  * unreachable.
  ****************************************/
+import java.util.Scanner;
+
 public class Group2_Driver {
 	public static void main(String[] args) {
-		Group2_Graph mahGraph = new Group2_Graph(new Group2_ReadFile("city3.txt")); // Pass in text file to be read for 1rst graph
-		Group2_Graph mahGraph2 = new Group2_Graph(new Group2_ReadFile("city3.txt"));// Pass in text file to be read for 2nd graph
+		String fileName = inputFileName(); // Get the file name to be read in
+		
+		Group2_Graph mahGraph = new Group2_Graph(fileName); // Pass in text file to be read for 1rst graph
+		Group2_Graph mahGraph2 = new Group2_Graph(fileName); // Pass in text file to be read for 2nd graph
 
 		mahGraph.shortestPath(mahGraph.getVertex(0)); // Get the shortest path starting at "a"
 		mahGraph2.shortestPath(mahGraph2.getVertex(1)); // Get the shortest path starting at "b"
 
 		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
+		
 		System.out.println();
+		
 		displayTable(mahGraph, mahGraph2); // Display the table to nodes that have a definite distance/path
+	}
+
+	public static String inputFileName() {
+		Scanner input = new Scanner(System.in); // Scanner to get input
+		
+		System.out.print("Enter the file name you are trying to open:  ");
+		
+		String fileName = input.nextLine(); // Get the input
+		
+		input.close(); // Close the file
+
+		System.out.println();
+
+		return fileName; // Return file name
 	}
 
 	public static void displayEverything(Group2_Graph mahGraph, Group2_Graph mahGraph2) {

@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Vertex.java
- * Version 4.0
+ * Version 5.0
  * 
  * The program works as expected as it
  * reads in a file given the file is

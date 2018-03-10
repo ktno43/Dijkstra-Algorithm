@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Dijkstra.java
- * Version 4.0
+ * Version 5.0
  * 
  * The following class calculates the
  * shortest path for two nodes.
