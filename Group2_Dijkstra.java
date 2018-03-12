@@ -42,20 +42,20 @@ public class Group2_Dijkstra {
 
 			Group2_Vertex current = mahQueue.poll(); // Get the head element in the priority queue
 
-			for (Group2_Edge neighbor : current.getNeighbors()) { // For every neighbor that the current node has
-				int newDist = current.getDist() + neighbor.getWeight(); // Recalculate the distance between the current and the neighboring node
+			for (Group2_Edge currentNeighbor : current.getNeighbors()) { // For every neighbor that the current node has
+				int newDist = current.getDist() + currentNeighbor.getWeight(); // Recalculate the distance between the current and the neighboring node
 
-				if (newDist < neighbor.getDest().getDist()) { // Compare the new distance with original weighted distance
+				if (newDist < currentNeighbor.getDest().getDist()) { // Compare the new distance with original weighted distance
 					// The new distance is less than the current
-					mahQueue.remove(neighbor.getDest()); // Remove and update the neighbor
-					neighbor.getDest().setDist(newDist); // Update the distance from the current node to it's neighbor
+					mahQueue.remove(currentNeighbor.getDest()); // Remove and update the neighbor
+					currentNeighbor.getDest().setDist(newDist); // Update the distance from the current node to it's neighbor
 
 					// Visit all the nodes & it's neighbors
-					neighbor.getDest().setPath(new LinkedList<Group2_Vertex>(current.getPath())); // Set the neighbor's paths with the current's path
-					neighbor.getDest().getPath().add(current); // Add the current node to the path
-					
+					currentNeighbor.getDest().setPath(new LinkedList<Group2_Vertex>(current.getPath())); // Set the neighbor's paths with the current's path
+					currentNeighbor.getDest().getPath().add(current); // Add the current node to the path
+
 					// Re-insert the neighbor with updated distance & path
-					mahQueue.add(neighbor.getDest());
+					mahQueue.add(currentNeighbor.getDest());
 				}
 			}
 		}
