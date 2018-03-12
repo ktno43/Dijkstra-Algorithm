@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Edge.java
- * Version 5.0
+ * Version 6.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -40,16 +40,15 @@ public class Group2_Edge {
 		this.weight = weight;
 	}
 
-	public Group2_Vertex getSrc() { // Get the source vertex
+	protected Group2_Vertex getSrc() { // Get the source vertex
 		return this.src;
 	}
 
-	public Group2_Vertex getDest() { // Get the destination vertex
+	protected Group2_Vertex getDest() { // Get the destination vertex
 		return this.dest;
 	}
 
-	public int getWeight() { // Get the weight of the edge
+	protected int getWeight() { // Get the weight of the edge
 		return this.weight;
 	}
-
 }

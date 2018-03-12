@@ -1,4 +1,3 @@
-
 /*-
  *****************************************
  * Group 2
@@ -12,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Driver.java
- * Version 5.0
+ * Version 6.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -35,7 +34,7 @@ import java.util.Scanner;
 public class Group2_Driver {
 	public static void main(String[] args) {
 		String fileName = inputFileName(); // Get the file name to be read in
-		
+
 		Group2_Graph mahGraph = new Group2_Graph(fileName); // Pass in text file to be read for 1rst graph
 		Group2_Graph mahGraph2 = new Group2_Graph(fileName); // Pass in text file to be read for 2nd graph
 
@@ -43,19 +42,19 @@ public class Group2_Driver {
 		mahGraph2.shortestPath(mahGraph2.getVertex(1)); // Get the shortest path starting at "b"
 
 		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
-		
+
 		System.out.println();
-		
+
 		displayTable(mahGraph, mahGraph2); // Display the table to nodes that have a definite distance/path
 	}
 
 	public static String inputFileName() {
 		Scanner input = new Scanner(System.in); // Scanner to get input
-		
+
 		System.out.print("Enter the file name you are trying to open:  ");
-		
+
 		String fileName = input.nextLine(); // Get the input
-		
+
 		input.close(); // Close the file
 
 		System.out.println();
@@ -72,15 +71,11 @@ public class Group2_Driver {
 			else
 				System.out.format("%s%s\t%s%d\t%s\t", "Vertex:  ", v.toString(), "Dist:  ", v.getDist(), "Path:  ");
 
-			for (Group2_Vertex pathvert : v.getPath()) {
-				System.out.print(pathvert);
-			}
-
 			if (v.getDist() == Integer.MAX_VALUE)
 				System.out.println("No path");
 
 			else
-				System.out.println("" + v.toString());
+				System.out.println(mahGraph.printPath(v));
 		}
 
 		System.out.println();
@@ -94,15 +89,11 @@ public class Group2_Driver {
 			else
 				System.out.format("%s%s\t%s%d\t%s\t", "Vertex:  ", v.toString(), "Dist:  ", v.getDist(), "Path:  ");
 
-			for (Group2_Vertex pathvert : v.getPath()) {
-				System.out.print(pathvert);
-			}
-
 			if (v.getDist() == Integer.MAX_VALUE)
 				System.out.println("No path");
 
 			else
-				System.out.println("" + v.toString());
+				System.out.println(mahGraph2.printPath(v));
 		}
 	}
 
@@ -136,11 +127,8 @@ public class Group2_Driver {
 							mahGraph.getVertex(indexG1).getDist()); // Display the vertex at the current index and display it's distance
 					System.out.print("\t   ");
 
-					for (Group2_Vertex pathV : mahGraph.getVertex(indexG1).getPath()) { // Display the corresponding path of the current index
-						System.out.format("%s", pathV);
-					}
+					System.out.print(mahGraph.printPath(mahGraph.getVertex(indexG1)) + "    "); // Print the path of the current vertex
 
-					System.out.print(mahGraph.getVertex(indexG1).toString() + "    "); // Display the current node (destination node) in the path
 					indexG1 += 1; // Increment the counter
 
 					if (indexG2 == mahGraph2.getGraph().size()) { // If there are no elements left in the other graph
@@ -169,6 +157,7 @@ public class Group2_Driver {
 									mahGraph2.getVertex(indexG2).getDist());
 
 							System.out.print("\t       ");
+							
 							fixLine = true; // Toggle to true since we've fixed the only line that would cause problems in the table format
 						}
 
@@ -187,11 +176,8 @@ public class Group2_Driver {
 						System.out.print("\t       ");
 					}
 
-					for (Group2_Vertex pathV : mahGraph2.getVertex(indexG2).getPath()) { // Display the path for the current node
-						System.out.format("%s", pathV);
-					}
-
-					System.out.print(mahGraph2.getVertex(indexG2).toString());  // Display the current node (destination node) in the path
+					System.out.print(mahGraph2.printPath(mahGraph2.getVertex(indexG2)) + "    "); // Print the path of current vertex
+					
 					indexG2 += 1; // Increment the counter
 
 					System.out.println();

@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Dijkstra.java
- * Version 5.0
+ * Version 6.0
  * 
  * The following class calculates the
  * shortest path for two nodes.
@@ -25,7 +25,7 @@ import java.util.PriorityQueue;
 
 public class Group2_Dijkstra {
 
-	public void shortestPath(Group2_Vertex source) { // Starting position of Dikstra's algorithm
+	protected void shortestPath(Group2_Vertex source) { // Starting position of Dikstra's algorithm
 		// Algorithm:
 		// 1. Take the unvisited node with minimum weight.
 		// 2. Visit all its neighbors.
@@ -53,7 +53,7 @@ public class Group2_Dijkstra {
 					// Visit all the nodes & it's neighbors
 					neighbor.getDest().setPath(new LinkedList<Group2_Vertex>(current.getPath())); // Set the neighbor's paths with the current's path
 					neighbor.getDest().getPath().add(current); // Add the current node to the path
-
+					
 					// Re-insert the neighbor with updated distance & path
 					mahQueue.add(neighbor.getDest());
 				}

@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Vertex.java
- * Version 5.0
+ * Version 6.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -45,36 +45,46 @@ public class Group2_Vertex implements Comparable<Group2_Vertex> {
 		this.path = new LinkedList<Group2_Vertex>();
 	}
 
-	public char getName() { // Get the name of the vertex
+	protected char getName() { // Get the name of the vertex
 		return this.name;
 	}
 
-	public ArrayList<Group2_Edge> getNeighbors() { // Get the list of it's neighbors
+	protected ArrayList<Group2_Edge> getNeighbors() { // Get the list of it's neighbors
 		return this.neighbors;
 	}
 
-	public void setPath(LinkedList<Group2_Vertex> newPath) { // Set the path to the new path
+	protected void setPath(LinkedList<Group2_Vertex> newPath) { // Set the path to the new path
 		this.path = newPath;
 	}
 
-	public LinkedList<Group2_Vertex> getPath() { // Get the path to the current node
+	protected LinkedList<Group2_Vertex> getPath() { // Get the path to the current node
 		return this.path;
 	}
 
-	public void setDist(int dist) { // Set the distance of the current node
+	protected void setDist(int dist) { // Set the distance of the current node
 		this.dist = dist;
 	}
 
-	public int getDist() { // Get the distance of the current node
+	protected int getDist() { // Get the distance of the current node
 		return this.dist;
+	}
+
+	protected String printPath() {
+		String output = "";
+		for (Group2_Vertex pathV : this.getPath()) { // Display the corresponding path of the current index
+			output += pathV.toString();
+		}
+		output += this.toString();
+		
+		return output;
+	}
+
+	public String toString() { // String representation of the vertex
+		return Character.toString(this.name);
 	}
 
 	@Override
 	public int compareTo(Group2_Vertex other) { // Implement comparable interface
 		return Integer.compare(this.dist, other.dist);
-	}
-
-	public String toString() { // String representation of the vertex
-		return Character.toString(this.name);
 	}
 }

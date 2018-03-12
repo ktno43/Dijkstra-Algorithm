@@ -1,4 +1,3 @@
-
 /*-
  *****************************************
  * Group 2
@@ -12,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_ReadFile.java
- * Version 5.0
+ * Version 6.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -54,7 +53,7 @@ public class Group2_ReadFile {
 		}
 	}
 
-	public void readFile(ArrayList<Character> src, ArrayList<Character> dest, ArrayList<Integer> weight) {
+	protected void readFile(ArrayList<Character> src, ArrayList<Character> dest, ArrayList<Integer> weight) {
 		while (sc.hasNext()) { // Read in the file given the file is formatted correclty with a src, dest and a weight
 			src.add(sc.next().charAt(0)); // Add the first character to the list
 			dest.add(sc.next().charAt(0)); // Add the second character to the list

@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Graph.java
- * Version 5.0
+ * Version 6.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -39,12 +39,12 @@ public class Group2_Graph {
 
 	public Group2_Graph(String fileName) { // Given a file create a graph
 		Group2_ReadFile file = new Group2_ReadFile(fileName); // Try to open the file given the file name
-		
+
 		ArrayList<Character> srcList = new ArrayList<Character>(); // List for the source vertex
 		ArrayList<Character> destList = new ArrayList<Character>(); // List for the destination vertex
 		ArrayList<Integer> weightList = new ArrayList<Integer>(); // List for the weight between the source and the destination
 		Set<Character> uniqueSet = new TreeSet<Character>(); // Ordered set (will only contain unique elements)
-		
+
 		List<Character> uniqueList = new ArrayList<Character>(); // Ordered list which will contain the ordered set
 
 		file.readFile(srcList, destList, weightList); // Read the file which will update the lists
@@ -67,7 +67,7 @@ public class Group2_Graph {
 		}
 	}
 
-	public void addEdge(char src, char dest, int weight) {
+	protected void addEdge(char src, char dest, int weight) {
 		int srcIndex = 0; // Source index
 		int destIndex = 0; // Destination index
 
@@ -87,15 +87,19 @@ public class Group2_Graph {
 		srcVertex.getNeighbors().add(e); // Update the neighbors array list
 	}
 
-	public ArrayList<Group2_Vertex> getGraph() { // Get the graph
+	protected ArrayList<Group2_Vertex> getGraph() { // Get the graph
 		return this.vertices;
 	}
 
-	public Group2_Vertex getVertex(int n) { // Get the vertex at index n in the graph
+	protected Group2_Vertex getVertex(int n) { // Get the vertex at index n in the graph
 		return this.vertices.get(n);
 	}
 
-	public void shortestPath(Group2_Vertex source) { // Calculate the shortest path given the starting point
+	protected String printPath(Group2_Vertex v) {
+		return v.printPath(); // Invoke print path for the current vertex
+	}
+
+	protected void shortestPath(Group2_Vertex source) { // Calculate the shortest path given the starting point
 		Group2_Dijkstra alg = new Group2_Dijkstra(); // Use dijkstra class and calculate the shortest path given the source
 		alg.shortestPath(source);
 	}
