@@ -33,10 +33,10 @@ import java.util.Scanner;
 
 public class Group2_Driver {
 	public static void main(String[] args) {
-		// String fileName = inputFileName(); // Get the file name to be read in
+		String fileName = inputFileName(); // Get the file name to be read in
 
-		Group2_Graph mahGraph = new Group2_Graph("city.txt"); // Pass in text file to be read for 1rst graph
-		Group2_Graph mahGraph2 = new Group2_Graph("city.txt"); // Pass in text file to be read for 2nd graph
+		Group2_Graph mahGraph = new Group2_Graph(fileName); // Pass in text file to be read for 1rst graph
+		Group2_Graph mahGraph2 = new Group2_Graph(fileName); // Pass in text file to be read for 2nd graph
 
 		mahGraph.shortestPath(mahGraph.getVertex(0)); // Get the shortest path starting at "a"
 		mahGraph2.shortestPath(mahGraph2.getVertex(1)); // Get the shortest path starting at "b"
