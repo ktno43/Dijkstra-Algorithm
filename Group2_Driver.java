@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Driver.java
- * Version 7.0
+ * Version 8.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -33,10 +33,10 @@ import java.util.Scanner;
 
 public class Group2_Driver {
 	public static void main(String[] args) {
-		String fileName = inputFileName(); // Get the file name to be read in
+		// String fileName = inputFileName(); // Get the file name to be read in
 
-		Group2_Graph mahGraph = new Group2_Graph(fileName); // Pass in text file to be read for 1rst graph
-		Group2_Graph mahGraph2 = new Group2_Graph(fileName); // Pass in text file to be read for 2nd graph
+		Group2_Graph mahGraph = new Group2_Graph("city.txt"); // Pass in text file to be read for 1rst graph
+		Group2_Graph mahGraph2 = new Group2_Graph("city.txt"); // Pass in text file to be read for 2nd graph
 
 		mahGraph.shortestPath(mahGraph.getVertex(0)); // Get the shortest path starting at "a"
 		mahGraph2.shortestPath(mahGraph2.getVertex(1)); // Get the shortest path starting at "b"
@@ -123,8 +123,9 @@ public class Group2_Driver {
 				}
 
 				else {
-					System.out.format("%5s%-11s%-11d%-22s", " ", mahGraph.getVertex(indexG1).toString(),
-							mahGraph.getVertex(indexG1).getDist(), mahGraph.printPath(mahGraph.getVertex(indexG1))); // Display data for current vertex
+					System.out.format("%5s%s%13d%8s%-22s", " ", mahGraph.getVertex(indexG1).toString(),
+							mahGraph.getVertex(indexG1).getDist(), " ",
+							mahGraph.printPath(mahGraph.getVertex(indexG1))); // Display data for current vertex
 					indexG1 += 1; // Increment the counter
 
 					if (indexG2 == mahGraph2.getGraph().size()) { // If there are no elements left in the other graph
@@ -149,20 +150,20 @@ public class Group2_Driver {
 				else {
 					if (indexG1 == mahGraph.getGraph().size()) { // Finished first graph
 						if (!fixLine) { // Add the data from where the first graph finished
-							System.out.format("%s%12d%9s", mahGraph2.getVertex(indexG2).toString(),
+							System.out.format("%s%13d%8s", mahGraph2.getVertex(indexG2).toString(),
 									mahGraph2.getVertex(indexG2).getDist(), " ");
 
 							fixLine = true; // Toggle to true since we've fixed the only line that would cause problems in the table format
 						}
 
 						else {
-							System.out.format("%49s%s%12d%9s", " ", mahGraph2.getVertex(indexG2).toString(),
+							System.out.format("%49s%s%13d%8s", " ", mahGraph2.getVertex(indexG2).toString(),
 									mahGraph2.getVertex(indexG2).getDist(), " "); // Display the data since the first graph finished
 						}
 					}
 
 					else {
-						System.out.format("%s%12d%9s", mahGraph2.getVertex(indexG2).toString(),
+						System.out.format("%s%13d%8s", mahGraph2.getVertex(indexG2).toString(),
 								mahGraph2.getVertex(indexG2).getDist(), " "); // Display the data while there are elements in both graphs
 					}
 
