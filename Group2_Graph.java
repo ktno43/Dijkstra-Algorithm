@@ -108,11 +108,11 @@ public class Group2_Graph {
 				srcIndex = i;
 		}
 		
-		if (srcIndex == -1) {
+		if (srcIndex == -1) { // Vertex was not found
 			System.out.println("Vertex " + srcVertexName + " is not in the graph.");
 		}
 		
-		else
+		else // Vertex match, calculate the shortest path=
 			alg.shortestPath(this.vertices.get(srcIndex));
 	}
 }
