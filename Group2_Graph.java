@@ -99,8 +99,20 @@ public class Group2_Graph {
 		return v.printPath(); // Invoke print path for the current vertex
 	}
 
-	protected void shortestPath(Group2_Vertex source) { // Calculate the shortest path given the starting point
+	protected void shortestPath(char srcVertexName) { // Calculate the shortest path given the starting point
 		Group2_Dijkstra alg = new Group2_Dijkstra(); // Use dijkstra class and calculate the shortest path given the source
-		alg.shortestPath(source);
+		int srcIndex = -1;
+		
+		for (int i = 0; i < this.vertices.size(); i += 1) { // Since the graph is in lexicographical ordering, get the corresponding index when reading from the list
+			if (this.vertices.get(i).getName() == src) // Found the match, update the source index
+				srcIndex = i;
+		}
+		
+		if (srcIndex == -1) {
+			System.out.println("Vertex " + srcVertexName + " is not in the graph.");
+		}
+		
+		else
+			alg.shortestPath(this.vertices.get(srcIndex));
 	}
 }
