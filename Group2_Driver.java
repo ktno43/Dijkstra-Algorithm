@@ -37,7 +37,7 @@ public class Group2_Driver {
 		Group2_Graph mahGraph2 = new Group2_Graph(args[0]); // Pass in text file to be read for 2nd graph
 
 		mahGraph.shortestPath(mahGraph.getVertex(args[1].charAt(0))); // Get the shortest path starting at "a"
-		mahGraph2.shortestPath(mahGraph2.getVertex(args[1].charAt(0))); // Get the shortest path starting at "b"
+		mahGraph2.shortestPath(mahGraph2.getVertex(args[2].charAt(0))); // Get the shortest path starting at "b"
 
 		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
 
