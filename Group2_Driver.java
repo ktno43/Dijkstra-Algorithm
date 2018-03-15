@@ -31,11 +31,11 @@
  ****************************************/
 public class Group2_Driver {
 	public static void main(String[] args) {
-		Group2_Graph mahGraph = new Group2_Graph(args[0]); // Pass in text file to be read for 1rst graph
-		Group2_Graph mahGraph2 = new Group2_Graph(args[0]); // Pass in text file to be read for 2nd graph
+		Group2_Graph mahGraph = new Group2_Graph(args[0]); // Pass in command line arguments at index 0 (city.txt) to be read for 1rst graph
+		Group2_Graph mahGraph2 = new Group2_Graph(args[0]); // Pass in command line arguments at index 0 (city.txt) to be read for graph
 
-		mahGraph.shortestPath(args[1].charAt(0)); // Get the shortest path starting at "a"
-		mahGraph2.shortestPath(args[2].charAt(0)); // Get the shortest path starting at "b"
+		mahGraph.shortestPath(args[1].charAt(0)); // Get the shortest path starting at "a" using command line arguments at index 1 ("a")
+		mahGraph2.shortestPath(args[2].charAt(0)); // Get the shortest path starting at "b" using command line arguments at index 2 ("b")
 
 		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
 

@@ -101,7 +101,7 @@ public class Group2_Graph {
 
 	protected void shortestPath(char srcVertexName) { // Calculate the shortest path given the starting point
 		Group2_Dijkstra alg = new Group2_Dijkstra(); // Use dijkstra class and calculate the shortest path given the source
-		int srcIndex = -1;
+		int srcIndex = -1; // Index set to -1 as default, the value should change if index was found
 
 		for (int i = 0; i < this.vertices.size(); i += 1) { // Since the graph is in lexicographical ordering, get the corresponding index when reading from the list
 			if (this.vertices.get(i).getName() == srcVertexName) // Found the match, update the source index
@@ -109,7 +109,7 @@ public class Group2_Graph {
 		}
 
 		if (srcIndex == -1) { // Vertex was not found
-			System.out.println("Vertex " + srcVertexName + " is not in the graph.");
+			System.out.println("Vertex " + srcVertexName + " is not in the graph.\n\n");
 		}
 
 		else // Vertex match, calculate the shortest path=
