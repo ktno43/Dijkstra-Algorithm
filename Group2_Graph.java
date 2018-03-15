@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Graph.java
- * Version 8.0
+ * Version 9.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -102,16 +102,16 @@ public class Group2_Graph {
 	protected void shortestPath(char srcVertexName) { // Calculate the shortest path given the starting point
 		Group2_Dijkstra alg = new Group2_Dijkstra(); // Use dijkstra class and calculate the shortest path given the source
 		int srcIndex = -1;
-		
+
 		for (int i = 0; i < this.vertices.size(); i += 1) { // Since the graph is in lexicographical ordering, get the corresponding index when reading from the list
-			if (this.vertices.get(i).getName() == src) // Found the match, update the source index
+			if (this.vertices.get(i).getName() == srcVertexName) // Found the match, update the source index
 				srcIndex = i;
 		}
-		
+
 		if (srcIndex == -1) { // Vertex was not found
 			System.out.println("Vertex " + srcVertexName + " is not in the graph.");
 		}
-		
+
 		else // Vertex match, calculate the shortest path=
 			alg.shortestPath(this.vertices.get(srcIndex));
 	}

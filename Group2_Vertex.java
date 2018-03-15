@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Vertex.java
- * Version 8.0
+ * Version 9.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -75,7 +75,7 @@ public class Group2_Vertex implements Comparable<Group2_Vertex> {
 			output += pathV.toString();
 		}
 		output += this.toString();
-		
+
 		return output;
 	}
 

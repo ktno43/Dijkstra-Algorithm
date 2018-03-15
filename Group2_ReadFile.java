@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_ReadFile.java
- * Version 8.0
+ * Version 9.0
  * 
  * The program works as expected as it
  * reads in a file given the file is

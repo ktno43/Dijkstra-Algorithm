@@ -11,7 +11,7 @@
  * Project 2: 
  * 
  * Group2_Driver.java
- * Version 8.0
+ * Version 9.0
  * 
  * The program works as expected as it
  * reads in a file given the file is
@@ -29,15 +29,13 @@
  * nor does it display nodes that are
  * unreachable.
  ****************************************/
-import java.util.Scanner;
-
 public class Group2_Driver {
 	public static void main(String[] args) {
 		Group2_Graph mahGraph = new Group2_Graph(args[0]); // Pass in text file to be read for 1rst graph
 		Group2_Graph mahGraph2 = new Group2_Graph(args[0]); // Pass in text file to be read for 2nd graph
 
-		mahGraph.shortestPath(mahGraph.getVertex(args[1].charAt(0))); // Get the shortest path starting at "a"
-		mahGraph2.shortestPath(mahGraph2.getVertex(args[2].charAt(0))); // Get the shortest path starting at "b"
+		mahGraph.shortestPath(args[1].charAt(0)); // Get the shortest path starting at "a"
+		mahGraph2.shortestPath(args[2].charAt(0)); // Get the shortest path starting at "b"
 
 		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
 
@@ -45,7 +43,7 @@ public class Group2_Driver {
 
 		displayTable(mahGraph, mahGraph2); // Display the table to nodes that have a definite distance/path
 	}
-	
+
 	public static void displayEverything(Group2_Graph mahGraph, Group2_Graph mahGraph2) {
 		System.out.println("Starting at vertex \"a\". . .");
 		for (Group2_Vertex v : mahGraph.getGraph()) {
