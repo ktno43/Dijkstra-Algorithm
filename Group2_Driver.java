@@ -37,11 +37,12 @@ public class Group2_Driver {
 		mahGraph.shortestPath(args[1].charAt(0)); // Get the shortest path starting at "a" using command line arguments at index 1 ("a")
 		mahGraph2.shortestPath(args[2].charAt(0)); // Get the shortest path starting at "b" using command line arguments at index 2 ("b")
 
-		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
+		displayTable(mahGraph, mahGraph2); // Display the table to nodes that have a definite distance/path
 
 		System.out.println();
+		
+		displayEverything(mahGraph, mahGraph2); // Display the paths to all the nodes given both graphs
 
-		displayTable(mahGraph, mahGraph2); // Display the table to nodes that have a definite distance/path
 	}
 
 	public static void displayEverything(Group2_Graph mahGraph, Group2_Graph mahGraph2) {
